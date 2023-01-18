@@ -1,16 +1,15 @@
-# fly.toml file generated for long-grass-5744 on 2023-01-18T17:28:03+02:00
+# fly.toml file generated for cool-snow-4493 on 2023-01-18T22:32:51+02:00
 
-app = "long-grass-5744"
+app = "cool-snow-4493"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
-[env]
-  PORT = 8080
-
 [build]
   builder = "heroku/buildpacks:20"
 
+[env]
+  PORT = "8080"
 
 [experimental]
   auto_rollback = true
