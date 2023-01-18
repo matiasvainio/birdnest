@@ -28,4 +28,7 @@ io.on("connection", async (socket) => {
   });
 });
 
-io.listen(3000);
+const PORT = process.env.PORT || 3000;
+io.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
