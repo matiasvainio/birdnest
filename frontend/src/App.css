@@ -1,19 +1,21 @@
-.App {
+.pilots-list {
+  margin: 2em 2em;
+}
+
+h1 {
 
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }
 
 li {
   padding: .5em;
-  margin: 0 2em 2em 0;
   border-radius: .7em;
 }
 
-ul li:nth-child(odd) {
+li:nth-child(odd) {
   background-color: pink;
 }
-
-
