@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import { SocketContext } from "../context/socket";
+import PilotInfo from "./PilotInfo";
 
 export const PilotsList = () => {
   const [pilots, setPilots] = useState([]);
@@ -23,7 +24,8 @@ export const PilotsList = () => {
   });
 
   return (
-    <div className="App">
+    <div className="pilots-list">
+      <h1>List of the pilots</h1>
       <ul>
         {pilots.map((pilot) => (
           <li key={pilot._id}>
@@ -36,18 +38,3 @@ export const PilotsList = () => {
 };
 
 export default PilotsList;
-
-const PilotInfo = ({ pilot }) => {
-  return (
-    <div>
-      <h2>
-        {pilot.firstName} {pilot.lastName}
-      </h2>
-      <p>
-        {pilot.email} {pilot.phoneNumber}
-      </p>
-      <p>{Math.round(pilot.distance / 1000)} m</p>
-      <p>{pilot.createdAt}</p>
-    </div>
-  );
-};
