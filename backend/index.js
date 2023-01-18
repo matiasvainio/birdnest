@@ -20,7 +20,6 @@ const io = new Server(httpServer, {
 
 io.on("connection", async (socket) => {
   socket.on("user/connected", async () => {
-    console.log("connect");
     const pilots = await getPilotsFromDatabase();
     socket.emit("data/pilots", pilots);
   });
