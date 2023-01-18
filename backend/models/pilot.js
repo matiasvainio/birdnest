@@ -5,7 +5,7 @@ const PilotSchema = new mongoose.Schema({
   lastName: String,
   email: String,
   phoneNumber: String,
-  createdAt: { type: Date, expires: 650_000, default: Date.now },
+  createdAt: { type: Date, expireAfterSeconds: 60 * 10, default: Date.now },
   distance: Number,
 });
 
