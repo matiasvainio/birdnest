@@ -38,8 +38,6 @@ const subscribeToDataChange = async () => {
   const response = await getDroneAndPilotData();
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  console.log(response);
-
   savePilotToDatabase(response);
   await subscribeToDataChange();
 };
