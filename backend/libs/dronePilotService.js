@@ -48,5 +48,5 @@ const mapDronesAndPilotsWhenInsideCircle = (drones) => {
 module.exports = {
   getPilotDataFromAPI,
   getDroneDataFromAPI,
-  mapPilotsToDronesInside: mapDronesAndPilotsWhenInsideCircle,
+  mapDronesAndPilotsWhenInsideCircle,
 };

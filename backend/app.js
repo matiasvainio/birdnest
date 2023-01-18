@@ -1,7 +1,7 @@
 const Pilot = require("./models/pilot");
 const {
   getDroneDataFromAPI,
-  mapPilotsToDronesInside,
+  mapDronesAndPilotsWhenInsideCircle,
 } = require("./libs/dronePilotService");
 
 const OLDEST_MESSAGE_TIME = 60 * 10 * 1000;
@@ -29,7 +29,9 @@ const getDroneAndPilotData = async () => {
   const result = await getDroneDataFromAPI();
   const drones = result.report.capture[0].drone;
 
-  const droneAndPilotInfo = Promise.all(mapPilotsToDronesInside(drones));
+  const droneAndPilotInfo = Promise.all(
+    mapDronesAndPilotsWhenInsideCircle(drones)
+  );
 
   return droneAndPilotInfo;
 };
