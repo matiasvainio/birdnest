@@ -1,17 +1,20 @@
+const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 require("dotenv").config();
+const path = require("path");
 
 const Pilot = require("./models/pilot");
 const getPilotsFromDatabase = require("./app");
 
 mongoose.connect(process.env.MONGODB_URI);
 
-const httpServer = createServer();
+const app = express();
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3001",
+    origin: "*",
   },
 });
 
@@ -28,7 +31,12 @@ io.on("connection", async (socket) => {
   });
 });
 
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 const PORT = process.env.PORT || 3000;
-io.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
