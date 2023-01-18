@@ -25,7 +25,11 @@ export const PilotsList = () => {
 
   return (
     <div className="pilots-list">
-      <h1>List of the pilots</h1>
+      <h1>List of the nosy pilots</h1>
+      <p>
+        This is a list of drone pilots that have been interested in the
+        endangered Monadikuikka and have been flying too close to it's nest.
+      </p>
       <ul>
         {pilots.map((pilot) => (
           <li key={pilot._id}>
